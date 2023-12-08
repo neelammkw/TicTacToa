@@ -23,17 +23,23 @@ function setStyles(e) {
     lineElement.style.width = "50vw";
 
     lineElement.style.transform = `translate(${e[3]}vw, ${e[4] + 13}vw) rotate(${e[5]}deg)`;
-    console.log("Current value:", wins[0][4]);
+    if (e === wins[0]) {
+        // const indexToChange = 4; // index of the value to change in the sub-array
+        // const newValue = "10vw"; // replace "new value" with your desired value
 
- const indexToChange = 4; // index of the value to change in the sub-array
-    const newValue = "10vw"; // new value as a string or a number
+        // e[indexToChange] = newValue;
 
-    wins[0][indexToChange] = newValue;
-
-    // Log the value after changing
-    console.log("New value:", wins[0][4]);
-
+        // // Log the value after changing
+        // console.log("New value:", e[indexToChange]);
+        document.querySelector(".line").style.transform = `translate(${e[3]}vw, 10vw) rotate(${e[5]}deg)`;
     
+
+      }
+else if (e === wins[2]){
+        document.querySelector(".line").style.transform = `translate(${e[3]}vw, 50vw) rotate(${e[5]}deg)`;
+
+}
+
   } else {
     // Apply default styles for larger viewports
     lineElement.style.width = "20vw";
@@ -68,6 +74,8 @@ const checkWin = () => {
 
       // Initial styles setup
       setStyles(e);
+
+
 
       // Add a listener to react to changes in viewport width
       mediaQuery.addListener(() => setStyles(e));
