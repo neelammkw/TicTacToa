@@ -14,32 +14,32 @@ const mediaQuery = window.matchMedia("(max-width: 786px)");
 
 // Function to set styles
 function setStyles(e) {
-
-    
   const lineElement = document.querySelector(".line");
 
   if (mediaQuery.matches) {
     // Apply styles for viewports 768px or less
     lineElement.style.width = "50vw";
 
-    lineElement.style.transform = `translate(${e[3]}vw, ${e[4] + 13}vw) rotate(${e[5]}deg)`;
+    lineElement.style.transform = `translate(${e[3]}vw, ${
+      e[4] + 13
+    }vw) rotate(${e[5]}deg)`;
     if (e === wins[0]) {
-        // const indexToChange = 4; // index of the value to change in the sub-array
-        // const newValue = "10vw"; // replace "new value" with your desired value
-
-        // e[indexToChange] = newValue;
-
-        // // Log the value after changing
-        // console.log("New value:", e[indexToChange]);
-        document.querySelector(".line").style.transform = `translate(${e[3]}vw, 10vw) rotate(${e[5]}deg)`;
-    
-
-      }
-else if (e === wins[2]){
-        document.querySelector(".line").style.transform = `translate(${e[3]}vw, 50vw) rotate(${e[5]}deg)`;
-
-}
-
+      document.querySelector(
+        ".line"
+      ).style.transform = `translate(${e[3]}vw, 10vw) rotate(${e[5]}deg)`;
+    } else if (e === wins[2]) {
+      document.querySelector(
+        ".line"
+      ).style.transform = `translate(${e[3]}vw, 50vw) rotate(${e[5]}deg)`;
+    } else if (e === wins[3]) {
+      document.querySelector(".line").style.transform = `translate(-15vw,  ${
+        e[4] + 13
+      }vw) rotate(${e[5]}deg)`;
+    } else if (e === wins[5]) {
+      document.querySelector(".line").style.transform = `translate(25vw,  ${
+        e[4] + 13
+      }vw) rotate(${e[5]}deg)`;
+    }
   } else {
     // Apply default styles for larger viewports
     lineElement.style.width = "20vw";
@@ -67,15 +67,18 @@ const checkWin = () => {
       boxtext[e[2]].innerText === boxtext[e[1]].innerText &&
       boxtext[e[0]].innerText !== ""
     ) {
-      document.querySelector(".info").innerText = boxtext[e[0]].innerText + " Won";
+      document.querySelector(".info").innerText =
+        boxtext[e[0]].innerText + " Won";
       isgameover = true;
-      document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width = "200px";
-      document.querySelector(".line").style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
+      document
+        .querySelector(".imgbox")
+        .getElementsByTagName("img")[0].style.width = "200px";
+      document.querySelector(
+        ".line"
+      ).style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
 
       // Initial styles setup
       setStyles(e);
-
-
 
       // Add a listener to react to changes in viewport width
       mediaQuery.addListener(() => setStyles(e));
@@ -95,7 +98,8 @@ Array.from(boxes).forEach((element) => {
       audioTurn.play();
       checkWin();
       if (!isgameover) {
-        document.getElementsByClassName("info")[0].innerText = "turn for " + turn;
+        document.getElementsByClassName("info")[0].innerText =
+          "turn for " + turn;
       }
     }
   });
@@ -110,5 +114,6 @@ reset.addEventListener("click", () => {
   isgameover = false;
   document.querySelector(".line").style.width = "0vw";
   document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
-  document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width = "0px";
+  document.querySelector(".imgbox").getElementsByTagName("img")[0].style.width =
+    "0px";
 });
