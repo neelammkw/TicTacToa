@@ -101,7 +101,7 @@
     position: absolute;
     background-color: #f458f4;
     transition: width 1s ease-in-out, transform 1s ease-in-out;
-    /* transform: translateY(0vw); */
+    transform: translateY(0vw);
 
 }
 
@@ -121,13 +121,33 @@
         grid-template-columns: repeat(3, 20vw);
     }
     .line {
-        background-color: black;
-        height: 3px;
-        width: 0;
-        position: absolute;
-        background-color: #f458f4;
+        /* width: 50vw; */
         transition: width 1s ease-in-out, transform 1s ease-in-out;
-        /* transform: translateY(-20vw); Adjust the value based on your preference */
+        /* transform: translateX(50vw);  */
+        /* Adjust the value based on your preference */
     }
 
 }  
+@media screen and (max-width: 768px) {
+    
+    .gameContainer{
+        flex-wrap: wrap;
+    }
+    .gameInfo{
+        margin-top: 28px;
+    }
+    .gameInfo h1{
+        font-size: 1.5rem;
+    }
+    .container { 
+        grid-template-rows: repeat(3, 20vw);
+        grid-template-columns: repeat(3, 20vw);
+    }
+    .line {
+        width: 10vw;
+        transition: width 1s ease-in-out, transform 1s ease-in-out;
+
+        /* transform: translateY(30px); */
+    }
+}
+
