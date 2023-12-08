@@ -79,6 +79,7 @@ const checkWin = () => {
 
       // Add a listener to react to changes in viewport width
       mediaQuery.addListener(() => setStyles(e));
+      gameover.play();
     }
   });
 };
