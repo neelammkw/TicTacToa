@@ -101,7 +101,7 @@
     position: absolute;
     background-color: #f458f4;
     transition: width 1s ease-in-out, transform 1s ease-in-out;
-    transform: translateY(0vw);
+    /* transform: translateY(0vw); */
 
 }
 
@@ -127,7 +127,7 @@
         position: absolute;
         background-color: #f458f4;
         transition: width 1s ease-in-out, transform 1s ease-in-out;
-        transform: translateY(-20vw); /* Adjust the value based on your preference */
+        /* transform: translateY(-20vw); Adjust the value based on your preference */
     }
 
 }  
